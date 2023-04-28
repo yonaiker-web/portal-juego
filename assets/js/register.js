@@ -6,5 +6,5 @@ document
     var password = document.getElementById("password").value;
     localStorage.setItem(username, password);
     alert("Usuario registrado con éxito!");
-    window.location.href = "login.html";
+    window.location.href = "../../index.html";
   });

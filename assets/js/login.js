@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const storedPassword = localStorage.getItem(username);
     if (password === storedPassword) {
       localStorage.setItem("token", username);
-      window.location.href = "home.html";
+      window.location.href = "../../pages/home.html";
     } else {
       alert("Nombre de usuario o contraseña incorrectos");
     }
