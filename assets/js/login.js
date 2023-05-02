@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
+const token = localStorage.getItem("token");
+
+if (!token) {
   const form = document.getElementById("login-form");
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -12,4 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Nombre de usuario o contraseña incorrectos");
     }
   });
-});
+} else {
+  window.location.href = "../../pages/home.html";
+}
