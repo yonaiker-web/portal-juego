@@ -1,8 +1,3 @@
-function info() {
-  let div = document.getElementById("nuevoboton");
-  div.innerHTML = "<div><button id='b1'>Nuevo Botón</button></div>";
-}
-
 //muestra la info sobre el juego
 function activar2() {
   const token = localStorage.getItem("token");
@@ -15,16 +10,5 @@ function activar2() {
             </p>`;
   } else {
     window.location.href = "../index.html";
-  }
-}
-
-//cerra sesion
-function logout() {
-  //preguntamos si desea cerra sesion
-  const opction = confirm("Desea cerrar sesion?");
-  //si la respuesta es si destruimos el token y redirigimos
-  if (opction) {
-    localStorage.removeItem("token");
-    window.location.href = "../../index.html";
   }
 }
