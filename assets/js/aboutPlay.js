@@ -1,6 +1,8 @@
 function info() {
   let div = document.getElementById("nuevoboton");
-  div.innerHTML = ` <div class="accordion">
+  div.innerHTML = `
+    <h2 class="py-4">Sobre el Juego</h2>
+  <div class="accordion">
                 <input
                   type="radio"
                   name="toggle"
@@ -91,6 +93,113 @@ function info() {
                   Pac-Man. Se popularizó tanto entre la población española que
                   la empresa MB tituló de esta manera la versión española de su
                   juego de mesa basado en Pac-Man.
+                </div>
+
+                <input type="radio" name="toggle" class="accordion-toggle" />
+                <div class="accordion-header">Fantasmas</div>
+                <div class="accordion-content">
+                  Inicialmente, los enemigos de Pac-Man eran referidos como
+                  monstruos en el mundo arcade, pero pronto se convirtieron en
+                  fantasmas mayormente de diferentes colores. Los fantasmas no
+                  son capaces de mover a la dirección opuesta de su movimiento
+                  actual Los fantasmas están limitados por el laberinto de la
+                  misma manera que Pac-Man, pero por lo general se mueven
+                  ligeramente más rápido que el jugador, aunque se vuelven más
+                  lentos cuando se activan los puntos especiales de las esquinas
+                  y se ralentizan significativamente al pasar a través de los
+                  túneles a los lados del laberinto (mientras que Pac-Man pasa a
+                  través de estos túneles sin trabas). Pac-Man se ralentiza
+                  ligeramente mientras come puntos, permitiendo potencialmente a
+                  un fantasma perseguidor que le capture durante esos momentos.
+
+                  <br />
+                  <br />
+
+                  <ol>
+                    <li>
+                      Blinky (Rojo). Después de que Pac-Man coma cierta cantidad
+                      de puntos, su velocidad incrementa considerablemente (este
+                      número disminuye en niveles más altos). Blinky persigue a
+                      Pac-man directamente.
+                    </li>
+
+                    <li>
+                      Inky (azul o Cian). No es tan rápido como Blinky pero su
+                      comportamiento se debe que el juego calcula la distancia
+                      en línea recta entre Blinky y Pac-man y lo gira 180
+                      grados, así que Inky siempre colabora con Blinky para
+                      acorralar a Pac-man
+                    </li>
+
+                    <li>
+                      Pinky (rosa). Este en realidad su blanco son cuatro
+                      espacios ubicados a la derecha, izquierda y abajo de
+                      pacman cuando este mira en tales direcciones, cuando
+                      Pac-man mira hacia arriba, el blanco es cuatro espacios
+                      arriba y dos a la izquierda. Esto hace que Pinky trate de
+                      atrapar a Pac-man por enfrente mientras Blinky lo persigue
+                      por detrás.
+                    </li>
+
+                    <li>
+                      Clyde (naranja). Este se mueve aleatoriamente a Pac-man,
+                      sin embargo considerando al propio Pac-man en un círculo
+                      de ocho espacios en cualquier dirección, Clyde huye cuando
+                      se acerca demasiado a él moviéndose a la esquina inferior
+                      izquierda del laberinto. Dado que los fantasmas no pueden
+                      girar a la dirección opuesta de su movimiento actual Clyde
+                      se verá forzado a chocar con Pac-man en caso de
+                      encontrarse en frente de él.
+                    </li>
+                  </ol>
+                </div>
+
+                <input type="radio" name="toggle" class="accordion-toggle" />
+                <div class="accordion-header">Pantalla dividida</div>
+                <div class="accordion-content">
+                  El videojuego tiene exactamente 255 pantallas completamente
+                  jugables, siendo este el mayor número que se puede expresar
+                  con ocho cifras en el sistema binario. Aunque, técnicamente,
+                  existe un nivel 256, si se llega a él la parte derecha de la
+                  pantalla aparece distorsionada con caracteres incongruentes y
+                  haciendo que el juego sea prácticamente injugable. Esto ocurre
+                  porque el contador de nivel (almacenado en un byte único)
+                  llega a 256 (cuando el máximo almacenable en un byte es 255,
+                  lo que produce un error de «overflow»). Entonces el programa
+                  trata de dibujar 256 frutas, lo que provoca la citada
+                  distorsión de la mitad derecha de la pantalla. Los entusiastas
+                  de Pac-Man se refieren a este nivel como el «nivel final», el
+                  «nivel de la pantalla dividida» (Split-Screen Level) o
+                  sencillamente como el final de Pac-Man. También en 2015, ha
+                  salido un juego llamado Pac-Man 256 que hace referencia a
+                  esto, el cual es un laberinto sin fin.
+                </div>
+
+                <input type="radio" name="toggle" class="accordion-toggle" />
+                <div class="accordion-header">Premios</div>
+                <div class="accordion-content">
+                  A lo largo del juego, Pac-Man puede encontrar diversos
+                  premios:
+
+                  <br />
+                  <br />
+
+                  <ol>
+                    <li>Nivel 1: Cereza 100 puntos.</li>
+                    <li>Nivel 2: Fresa 300 puntos.</li>
+                    <li>Niveles 3 y 4: Naranja 500 puntos.</li>
+                    <li>Niveles 5 y 6: Manzana 700 puntos.</li>
+                    <li>Niveles 7 y 8: Uvas 1000 puntos.</li>
+                    <li>Niveles 9 y 10: Galaxian 2000 puntos.</li>
+                    <li>Niveles 11 y 12: Campana 3000 puntos.</li>
+                    <li>Niveles 13 al 255: Llave 5000 puntos.</li>
+                  </ol>
+                </div>
+
+                <div class="accordion-content">
+                  En cada nivel aparecen dos veces los premios. Si Pac-Man
+                  pierde una vida cuando aparece un premio, este desaparece a la
+                  vida siguiente
                 </div>
               </div>`;
 }

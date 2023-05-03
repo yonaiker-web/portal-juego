@@ -70,3 +70,7 @@
 .accordion-toggle:checked + .accordion-header {
   background-color: #fff;
 }
+
+.w-15 {
+  width: 15%;
+}
