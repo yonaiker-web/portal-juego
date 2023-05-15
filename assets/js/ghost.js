@@ -265,7 +265,7 @@ class Ghost {
         );
         canvasContext.restore();
         canvasContext.beginPath();
-        canvasContext.strokeStyle = "red";
+        canvasContext.strokeStyle = 'rgba(255, 255, 255, 0)';
         canvasContext.arc(
             this.x + oneBlockSize / 2,
             this.y + oneBlockSize / 2,

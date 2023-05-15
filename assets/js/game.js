@@ -24,6 +24,7 @@ let ghostImageLocations = [
 // Game variables
 let fps = 30;
 let pacman;
+let wallColor="#FFFFFF";
 let oneBlockSize = 20; //tamaño de los bloques en el juego
 let score = 0;
 let ghosts = [];
