@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pacman</title>
-</head>
+    <link rel="stylesheet" href="../assets/css/bootstrap.css" />
+  </head>
 
-<body style="margin: 0; background-color: black;">
-    <canvas id="canvas" width="1100" height="1000"></canvas>
-    <div style="display:none;">
-        <img id="animation" src="/assets/img/animations.gif" width="140" height="20">
-        <img id="ghosts" src="/assets/img/ghost.png" width="140" height="20">
+  <body style="margin: 0; background-color: black">
+    <div class="container">
+      <canvas id="canvas" width="1100" height="1000"></canvas>
+      <div style="display: none">
+        <img
+          id="animation"
+          src="/assets/img/animations.gif"
+          width="140"
+          height="20"
+        />
+        <img id="ghosts" src="/assets/img/ghost.png" width="140" height="20" />
+      </div>
     </div>
     <script src="/assets/js/ghost.js"></script>
     <script src="/assets/js/pacman.js"></script>
     <script src="/assets/js/game.js"></script>
-</body>
-
+  </body>
 </html>
