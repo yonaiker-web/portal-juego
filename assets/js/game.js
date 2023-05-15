@@ -1,9 +1,9 @@
-const canvas = document.getElementById("canvas");
-const canvasContext = canvas.getContext("2d");
+const canvas = document.getElementById("canvas"); //es un elemento que se utiliza para dibujar gráficos
+const canvasContext = canvas.getContext("2d"); // estamos obteniendo el contexto 2D para dibujar gráficos
 const pacmanFrames = document.getElementById("animation");
-const ghostFrames = document.getElementById("ghosts");
+const ghostFrames = document.getElementById("ghosts"); //se utilizan para almacenar imágenes de sprites que se utilizan para animar los personajes del juego.
 
-let createRect = (x, y, width, height, color) => {
+let createRect = (x, y, width, height, color) => { // se define para dibujar un rectángulo en el canvas
     canvasContext.fillStyle = color;
     canvasContext.fillRect(x, y, width, height);
 };
@@ -11,25 +11,25 @@ let createRect = (x, y, width, height, color) => {
 const DIRECTION_RIGHT = 4;
 const DIRECTION_UP = 3;
 const DIRECTION_LEFT = 2;
-const DIRECTION_BOTTOM = 1;
-let lives = 3;
-let ghostCount = 4;
+const DIRECTION_BOTTOM = 1; //direcciones
+let lives = 3; //vidas
+let ghostCount = 4; //cantidad de enemigos
 let ghostImageLocations = [
     { x: 0, y: 0 },
     { x: 176, y: 0 },
     { x: 0, y: 121 },
     { x: 176, y: 121 },
-];
+]; //posiciones de los enemigos
 
 // Game variables
 let fps = 30;
 let pacman;
-let oneBlockSize = 20;
+let oneBlockSize = 20; //tamaño de los bloques en el juego
 let score = 0;
 let ghosts = [];
-let wallSpaceWidth = oneBlockSize / 1.6;
-let wallOffset = (oneBlockSize - wallSpaceWidth) / 2;
-let wallInnerColor = "black";
+let wallSpaceWidth = oneBlockSize / 1.6; //tamaño del espacio entre las paredes en el laberinto
+let wallOffset = (oneBlockSize - wallSpaceWidth) / 2; //representa el desplazamiento de las paredes en el laberinto
+let wallInnerColor = "black"; //representa el color de las paredes interiores del laberinto
 
 // we now create the map of the walls,
 // if 1 wall, if 0 not wall
@@ -68,7 +68,7 @@ let randomTargetsForGhosts = [
         x: (map[0].length - 2) * oneBlockSize,
         y: (map.length - 2) * oneBlockSize,
     },
-];
+];//Los fantasmas utilizan estas posiciones objetivo para guiar su comportamiento en el juego
 
 // for (let i = 0; i < map.length; i++) {
 //     for (let j = 0; j < map[0].length; j++) {
@@ -76,7 +76,7 @@ let randomTargetsForGhosts = [
 //     }
 // }
 
-let createNewPacman = () => {
+let createNewPacman = () => { 
     pacman = new Pacman(
         oneBlockSize,
         oneBlockSize,
@@ -84,7 +84,7 @@ let createNewPacman = () => {
         oneBlockSize,
         oneBlockSize / 5
     );
-};
+}; //Objeto Pacman: Los parámetros que se pasan al constructor representan las dimensiones y la velocidad del Pac-Man
 
 let gameLoop = () => {
     update();
@@ -96,14 +96,14 @@ let gameInterval = setInterval(gameLoop, 1000 / fps);
 let restartPacmanAndGhosts = () => {
     createNewPacman();
     createGhosts();
-};
+}; //reiniciar juego
 
 let onGhostCollision = () => {
     lives--;
     restartPacmanAndGhosts();
     if (lives == 0) {
     }
-};
+};//disminuye el número de vidas del jugador, reinicia el juego y verifica si no quedan vidas para finalizar el juego
 
 let update = () => {
     pacman.moveProcess();
@@ -112,7 +112,7 @@ let update = () => {
     if (pacman.checkGhostCollision(ghosts)) {
         onGhostCollision();
     }
-};
+};// se actualiza la posición del Pac-Man, se verifica si ha comido un punto, se actualiza la posición de los fantasmas y se comprueba si Pac-Man ha chocado con uno de los fantasmas
 
 let drawFoods = () => {
     for (let i = 0; i < map.length; i++) {
@@ -123,12 +123,12 @@ let drawFoods = () => {
                     i * oneBlockSize + oneBlockSize / 3,
                     oneBlockSize / 3,
                     oneBlockSize / 3,
-                    "#FEB897"
+                    "#FFFFFF"
                 );
             }
         }
     }
-};
+};//dibujar los puntos del juego en la pantalla
 
 let drawRemainingLives = () => {
     canvasContext.font = "20px Emulogic";
@@ -148,7 +148,8 @@ let drawRemainingLives = () => {
             oneBlockSize
         );
     }
-};
+};//es una función que se encarga de dibujar el número de vidas restantes del jugador en la pantalla
+
 
 let drawScore = () => {
     canvasContext.font = "20px Emulogic";
@@ -158,7 +159,7 @@ let drawScore = () => {
         0,
         oneBlockSize * (map.length + 1)
     );
-};
+}; // es una función que se encarga de dibujar la puntuación actual del jugador en la pantalla
 
 let draw = () => {
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
@@ -169,7 +170,7 @@ let draw = () => {
     pacman.draw();
     drawScore();
     drawRemainingLives();
-};
+};//se llama en el bucle de juego para dibujar los elementos del juego en la pantalla
 
 let drawWalls = () => {
     for (let i = 0; i < map.length; i++) {
@@ -224,7 +225,7 @@ let drawWalls = () => {
             }
         }
     }
-};
+};//se encarga de dibujar las paredes del juego en la pantalla
 
 let createGhosts = () => {
     ghosts = [];
@@ -243,13 +244,13 @@ let createGhosts = () => {
         );
         ghosts.push(newGhost);
     }
-};
+};//crear fantasmas
 
 createNewPacman();
 createGhosts();
-gameLoop();
+gameLoop(); //  iniciar el bucle de juego.
 
-window.addEventListener("keydown", (event) => {
+window.addEventListener("keydown", (event) => { //se añade un evento "keydown" al objeto "window" para detectar cuando el jugador presiona una tecla
     let k = event.keyCode;
     setTimeout(() => {
         if (k == 37 || k == 65) {
@@ -266,4 +267,4 @@ window.addEventListener("keydown", (event) => {
             pacman.nextDirection = DIRECTION_BOTTOM;
         }
     }, 1);
-});
+});//direccion del pacman
